@@ -4,7 +4,7 @@ import { P } from '../../../emotionalThings/EmoTools'
 const TodoItem = props => (
   <>
     {props.todo.completed ? (
-      <P m='10px auto' style={{ textDecoration: 'line-through' }}>
+      <P m='10px auto' lt>
         {props.todo.task}
       </P>
     ) : (

@@ -13,7 +13,6 @@ class App extends Component {
       storedArray = JSON.parse(localStorage.getItem('todoArray'))
     this.state = {
       todoArray: storedArray,
-      itemString: '',
       searchString: '',
     }
   }
@@ -45,9 +44,8 @@ class App extends Component {
   }
   handleSearch = e => {
     this.setState({ searchString: e.target.value })
-    console.log(this.state)
   }
-  
+
   render() {
     return (
       <>

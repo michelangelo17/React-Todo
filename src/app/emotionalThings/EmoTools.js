@@ -86,6 +86,11 @@ const flexWrapMap = styledMap`
   fw: wrap;
   default: null;
 `
+const textDecorationMap = styledMap`
+  lt: line-through;
+  ul: underline;
+  default: none;
+`
 
 export const FlexContainer = styled.div`
   display: flex;
@@ -179,6 +184,7 @@ export const P = styled.p`
   color: ${styleVariables.mainFontColor};
   font-family: ${styleVariables.mainFontFamily};
   text-align: ${props => props.ta};
+  text-decoration: ${textDecorationMap};
 `
 
 export const Button = styled.button`
