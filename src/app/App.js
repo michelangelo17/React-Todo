@@ -20,6 +20,11 @@ class App extends Component {
   componentDidUpdate() {
     localStorage.setItem('todoArray', JSON.stringify(this.state.todoArray))
   }
+  addNewItem = newItem => {
+    this.setState({
+      todoArray: [...this.state.todoArray, newItem],
+    })
+  }
   handleClear = () => {
     this.setState({
       todoArray: this.state.todoArray.filter(todo => !todo.completed),
@@ -38,26 +43,11 @@ class App extends Component {
       ),
     })
   }
-  handleChange = e => {
-    this.setState({ itemString: e.target.value })
-  }
   handleSearch = e => {
     this.setState({ searchString: e.target.value })
     console.log(this.state)
   }
-  handleSubmit = e => {
-    e.preventDefault()
-    const newItem = {
-      task: this.state.itemString,
-      id: Date.now(),
-      completed: false,
-    }
-    this.state.itemString !== '' &&
-      this.setState({
-        todoArray: [...this.state.todoArray, newItem],
-        itemString: '',
-      })
-  }
+  
   render() {
     return (
       <>
@@ -69,6 +59,7 @@ class App extends Component {
           handleClear={this.handleClear}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          addNewItem={this.addNewItem}
           state={this.state}
         />
         <Search handleSearch={this.handleSearch} state={this.state} />
